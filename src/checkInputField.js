@@ -1,6 +1,5 @@
 import moment from "moment";
 
-// console.log(obj.month())
 function containsOnlyDigits(str) {
   return !isNaN(str) && !isNaN(parseFloat(str));
 }
@@ -27,7 +26,7 @@ const checkInputField = (inputLabel, value, inputDate) => {
         if (!containsOnlyDigits(value)) {
           return "invalid";
         }
-        const date = moment(inputDate, "DD-MM-YYYY");
+        const date = moment(inputDate, "YYYY-MM-DD");
         return date.isValid() ? "valid" : "invalid";
     }
   }

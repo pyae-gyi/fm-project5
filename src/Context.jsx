@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import App from "./App";
 import { checkInputField } from "./checkInputField";
+import moment from "moment";
 
 const Context = React.createContext("");
 export default function ContextGuy() {
@@ -25,11 +26,16 @@ export default function ContextGuy() {
     isError: false,
     isButtonGetClicked: false,
   });
+
   const calculateAge = async () => {
     const { years, months, days } = stateData.birth;
+    const inputDate = moment(`${years}-${months}-${days}`, "YYYY-MM-DD").format(
+      "YYYY-MM-DD"
+    );
+
     setStateData((prevValue) => ({ ...prevValue, loading: true }));
     const response = await fetch(
-      `https://digidates.de/api/v1/age/${years}-${months}-${days}`
+      `https://digidates.de/api/v1/age/${inputDate}`
     );
     const data = await response.json();
     setStateData((prevValue) => ({ ...prevValue, loading: false }));
@@ -42,7 +48,7 @@ export default function ContextGuy() {
     for (let i = 0; i < 3; i++) {
       // console.log(inputLabel, stateData.birth[moments[i]]);
       const { days, months, years } = stateData.birth;
-      const date = `${days}-${months}-${years}`;
+      const date = `${years}-${months}-${days}`;
       const inputFieldCondition = checkInputField(
         moments[i],
         stateData.birth[moments[i]],
