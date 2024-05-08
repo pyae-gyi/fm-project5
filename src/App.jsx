@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
           {stateData.isError ? (
-            <div className="font-extrabold text-5xl italic">
+            <div className="font-extrabold text-5xl italic leading-5">
               Please Try Again!
             </div>
           ) : stateData.loading ? (
