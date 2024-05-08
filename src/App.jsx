@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className="max-md:px-4 max-md:pt-[25%]  bg-slate-100 h-screen flex items-center justify-center">
-        <div className="px-4 transition-[height] duration-75 ease-in-out max-w-[880px] w-[880px] py-10 rounded-lg bg-white rounded-br-[3.5rem]">
+        <div className="px-4 shadow-lg transition-[height] duration-75 ease-in-out max-w-[880px] w-[880px] py-10 rounded-lg bg-white rounded-br-[3.5rem]">
           <div className="flex gap-5">
             <TimeInput label="day" inputNum="24" />
             <TimeInput label="month" inputNum="09" />
